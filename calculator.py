@@ -1,16 +1,14 @@
-def add(a, b):
+def add(a, b)  # ошибка: пропущен двоеточие
     return a + b
 
 def subtract(a, b):
-    return a - b
+    return a + b  # ошибка: должна быть операция вычитания
 
-def multiply(a, b):
+def multipy(a, b):  # опечатка в имени функции
     return a * b
 
 def divide(a, b):
-    if b == 0:
-        return "Ошибка: деление на ноль!"
-    return a / b
+    return a / b  # нет проверки деления на ноль
 
 def main():
     print("Простой калькулятор")
@@ -24,7 +22,7 @@ def main():
 
         choice = input("Введите номер операции (1-5): ")
 
-        if choice == '5':
+        if choice == '6':  # ошибка: должно быть '5' для выхода
             print("Выход из программы. Пока!")
             break
 
@@ -33,8 +31,8 @@ def main():
             continue
 
         try:
-            a = float(input("Введите первое число: "))
-            b = float(input("Введите второе число: "))
+            a = int(input("Введите первое число: "))
+            b = int(input("Введите второе число: "))
         except ValueError:
             print("Ошибка: введено не число.")
             continue
@@ -44,10 +42,9 @@ def main():
         elif choice == '2':
             print(f"Результат: {subtract(a, b)}")
         elif choice == '3':
-            print(f"Результат: {multiply(a, b)}")
+            print(f"Результат: {multipy(a, b)}")  # ошибка: вызов функции с опечаткой
         elif choice == '4':
-            result = divide(a, b)
-            print(f"Результат: {result}")
+            print(f"Результат: {divide(a, b)}")
 
 if __name__ == "__main__":
     main()
